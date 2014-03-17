@@ -1,0 +1,8 @@
+start-dfs.sh
+start-yarn.sh
+cd /home/otaviojava/workspace/texto/target/classes
+jar cvf wc1.jar App*class
+hadoop jar wc1.jar App test.txt output.txt
+hadoop fs -get /user/otaviojava/output.txt
+
+

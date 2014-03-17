@@ -1,0 +1,43 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/context
+          http://www.springframework.org/schema/context/spring-context-3.0.xsd
+          http://www.springframework.org/schema/beans
+          http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+<context:component-scan base-package="linguagil.lucene" />	
+
+<context:property-placeholder location="classpath:grade.properties" />
+
+<bean id="musicas" class="linguagil.lucene.grade.model.Grades">
+	<property name="grades">
+		<list>
+			<value>${equipe10}</value>
+			<value>${desen.completo}</value>
+			<value>${feijao}</value>
+			<value>${internet}</value>
+			<value>${codigo}</value>
+			<value>${matrix}</value>
+			<value>${games}</value>
+			<value>${android}</value>
+			<value>${phonegap}</value>
+			<value>${python}</value>
+			<value>${bi}</value>
+			<value>${olm}</value>
+			<value>${nosql}</value>
+		</list>
+	</property>
+
+</bean>
+
+
+<bean id="conversionService" class="org.springframework.context.support.ConversionServiceFactoryBean" >
+	<property name="converters">
+		<set>
+			<bean class="linguagil.lucene.grade.model.GradeConverter"/>
+		</set>
+	</property>
+</bean>
+
+</beans>
